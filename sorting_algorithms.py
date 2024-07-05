@@ -18,8 +18,16 @@ class SortableList(list):
             i += 1
 
 
-    def selection_sort():
-        pass
+    def selection_sort(self):
+        for i in range(len(self)):
+            i_smallest = i
+            for j in range(i+1, len(self)):
+                if self[j] < self[i_smallest]:
+                    i_smallest = j
+            
+            tmp = self[i]
+            self[i] = self[i_smallest] 
+            self[i_smallest] = tmp
 
 
     def merge_sort():
@@ -36,8 +44,8 @@ class SortableList(list):
 
 
 if __name__ == '__main__':
-    lst = SortableList([3,5,3,1,6,7])
+    lst = SortableList([3,2,4,1,6,5])
 
-    lst.insertion_sort()
+    lst.selection_sort()
 
     print(lst)
